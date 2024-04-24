@@ -79,7 +79,10 @@ public class TouchEngine : ModuleRules
 			PrivateIncludePaths.Add(Path.Combine(EngineDir, "Source/Runtime/VulkanRHI/Private/Windows"));
 			
 			AddEngineThirdPartyPrivateStaticDependencies(Target, "NVAftermath");
-			AddEngineThirdPartyPrivateStaticDependencies(Target, "IntelMetricsDiscovery");
+			if (Target.Version.MajorVersion == 5 && Target.Version.MinorVersion < 4)
+			{
+				AddEngineThirdPartyPrivateStaticDependencies(Target, "IntelMetricsDiscovery");
+			}
 			AddEngineThirdPartyPrivateStaticDependencies(Target, "IntelExtensionsFramework");
 		}
 		else if (Target.Platform == UnrealTargetPlatform.Win64
