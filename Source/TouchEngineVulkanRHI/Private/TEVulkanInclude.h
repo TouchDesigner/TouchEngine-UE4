@@ -14,9 +14,7 @@
 #pragma once
 
 #if PLATFORM_WINDOWS
-#include "Windows/PreWindowsApi.h"
-#include "Windows/MinWindows.h" //MinWindows.h needs to be included before windows.h, and vulkan.h (included by TEVulkan.h below) includes windows.h
-#include "Windows/PostWindowsApi.h"
+#include "Windows/WindowsHWrapper.h" //MinWindows.h needs to be included before windows.h, and vulkan.h (included by TEVulkan.h below) include windows.h
 #endif
 
 #include "TouchEngine/TEVulkan.h"

@@ -24,10 +24,7 @@
 #include "Util/TouchFenceCache.h"
 
 #include "Windows/AllowWindowsPlatformTypes.h"
-#include "Windows/PreWindowsApi.h"
 #include "d3d12.h"
-#include "wrl/client.h"
-#include "Windows/PostWindowsApi.h"
 #include "Windows/HideWindowsPlatformTypes.h"
 
 class UTexture2D;

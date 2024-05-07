@@ -14,17 +14,10 @@
 
 #include "TouchTextureImporterVulkan.h"
 
-#include "Util/TextureShareVulkanPlatformWindows.h"
-
-#include "Windows/AllowWindowsPlatformTypes.h"
-#include "Windows/PreWindowsApi.h"
-#include "Windows/MinimalWindowsApi.h"
-#include "Windows/PostWindowsApi.h"
-#include "Windows/HideWindowsPlatformTypes.h"
-
+#include "TEVulkanInclude.h"
 #include "TouchImportTextureVulkan.h"
 #include "VulkanTouchUtils.h"
-#include "TEVulkanInclude.h"
+#include "Util/TextureShareVulkanPlatformWindows.h"
 
 namespace UE::TouchEngine::Vulkan
 {

@@ -14,17 +14,16 @@
 
 #include "ExportedTextureD3D12.h"
 
+#include "RenderingThread.h"
 #include "ID3D12DynamicRHI.h"
 #include "RHI.h"
 #include "TextureResource.h"
 
 #include "Util/TouchEngineStatsGroup.h"
 #include "Windows/AllowWindowsPlatformTypes.h"
-#include "Windows/PreWindowsApi.h"
 THIRD_PARTY_INCLUDES_START
 #include "d3d12.h"
 THIRD_PARTY_INCLUDES_END
-#include "Windows/PostWindowsApi.h"
 #include "Windows/HideWindowsPlatformTypes.h"
 
 #include "D3D12TouchUtils.h"

@@ -19,12 +19,9 @@
 #include "Util/TouchFenceCache.h"
 
 #include "Windows/AllowWindowsPlatformTypes.h"
-#include "Windows/PreWindowsApi.h"
 THIRD_PARTY_INCLUDES_START
-#include <wrl/client.h>
 #include "d3d12.h"
 THIRD_PARTY_INCLUDES_END
-#include "Windows/PostWindowsApi.h"
 #include "Windows/HideWindowsPlatformTypes.h"
 
 namespace UE::TouchEngine::D3DX12

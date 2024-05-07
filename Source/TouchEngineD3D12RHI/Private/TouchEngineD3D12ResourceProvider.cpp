@@ -15,10 +15,8 @@
 #include "TouchEngineD3D12ResourceProvider.h"
 
 #include "Windows/AllowWindowsPlatformTypes.h"
-#include "Windows/PreWindowsApi.h"
 #include "d3d12.h"
 #include "D3D12TouchUtils.h"
-#include "Windows/PostWindowsApi.h"
 #include "Windows/HideWindowsPlatformTypes.h"
 
 #include "Exporting/TouchTextureExporterD3D12.h"

@@ -15,12 +15,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-
-#include "PixelFormat.h"
-
-#include "Windows/PreWindowsApi.h"
 #include "DXGIFormat.h"
-#include "Windows/PostWindowsApi.h"
+#include "PixelFormat.h"
 
 namespace UE::TouchEngine::D3DX11
 {

@@ -17,6 +17,11 @@
 #include "Logging.h"
 
 #if PLATFORM_WINDOWS
+THIRD_PARTY_INCLUDES_START
+#include "Windows/AllowWindowsPlatformTypes.h"
+#include <aclapi.h>
+#include "Windows/HideWindowsPlatformTypes.h"
+THIRD_PARTY_INCLUDES_END
 
 namespace UE::TouchEngine::Vulkan
 {

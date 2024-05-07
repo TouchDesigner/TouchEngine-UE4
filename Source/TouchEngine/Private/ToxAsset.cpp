@@ -81,15 +81,15 @@ void UToxAsset::PostInitProperties()
 	Super::PostInitProperties();
 }
 
-void UToxAsset::GetAssetRegistryTags(TArray<FAssetRegistryTag>& OutTags) const
-{
-	// the code below makes the reimporting work, but forces the tox file and the asset file to move together
-	// FAssetImportInfo ImportInfo;
-	// ImportInfo.Insert(FAssetImportInfo::FSourceFile(GetAbsoluteFilePath()));
-	// OutTags.Add( FAssetRegistryTag(SourceFileTagName(), ImportInfo.ToJson(), FAssetRegistryTag::TT_Hidden) );
-
-	Super::GetAssetRegistryTags(OutTags);
-}
+// void UToxAsset::GetAssetRegistryTags(TArray<FAssetRegistryTag>& OutTags) const
+// {
+// 	// the code below makes the reimporting work, but forces the tox file and the asset file to move together
+// 	// FAssetImportInfo ImportInfo;
+// 	// ImportInfo.Insert(FAssetImportInfo::FSourceFile(GetAbsoluteFilePath()));
+// 	// OutTags.Add( FAssetRegistryTag(SourceFileTagName(), ImportInfo.ToJson(), FAssetRegistryTag::TT_Hidden) );
+//
+// 	Super::GetAssetRegistryTags(OutTags);
+// }
 
 void UToxAsset::Serialize(FArchive& Ar)
 {

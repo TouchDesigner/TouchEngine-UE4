@@ -146,32 +146,32 @@ private:
 template<> struct TVariantTraits<TArray<double>>
 {
 	/** Only returns EVariantTypes::Custom. Be mindful that other TVariantTraits might use it */
-	static CONSTEXPR EVariantTypes GetType() { return EVariantTypes::Custom; }
+	static constexpr EVariantTypes GetType() { return EVariantTypes::Custom; }
 };
 template<> struct TVariantTraits<TArray<TOptional<double>>>
 {
 	/** Only returns EVariantTypes::Custom. Be mindful that other TVariantTraits might use it */
-	static CONSTEXPR EVariantTypes GetType() { return EVariantTypes::Custom; }
+	static constexpr EVariantTypes GetType() { return EVariantTypes::Custom; }
 };
 template<> struct TVariantTraits<TArray<float>>
 {
 	/** Only returns EVariantTypes::Custom. Be mindful that other TVariantTraits might use it */
-	static CONSTEXPR EVariantTypes GetType() { return EVariantTypes::Custom; }
+	static constexpr EVariantTypes GetType() { return EVariantTypes::Custom; }
 };
 template<> struct TVariantTraits<TArray<TOptional<float>>>
 {
 	/** Only returns EVariantTypes::Custom. Be mindful that other TVariantTraits might use it */
-	static CONSTEXPR EVariantTypes GetType() { return EVariantTypes::Custom; }
+	static constexpr EVariantTypes GetType() { return EVariantTypes::Custom; }
 };
 template<> struct TVariantTraits<TArray<int>>
 {
 	/** Only returns EVariantTypes::Custom. Be mindful that other TVariantTraits might use it */
-	static CONSTEXPR EVariantTypes GetType() { return EVariantTypes::Custom; }
+	static constexpr EVariantTypes GetType() { return EVariantTypes::Custom; }
 };
 template<> struct TVariantTraits<TArray<TOptional<int>>>
 {
 	/** Only returns EVariantTypes::Custom. Be mindful that other TVariantTraits might use it */
-	static CONSTEXPR EVariantTypes GetType() { return EVariantTypes::Custom; }
+	static constexpr EVariantTypes GetType() { return EVariantTypes::Custom; }
 };
 
 namespace UE
@@ -1293,9 +1293,9 @@ const TCHAR* FTouchEngineDynamicVariableStruct::ImportAndSetStruct(const TCHAR* 
 template <typename TValue>
 const TCHAR* FTouchEngineDynamicVariableStruct::ImportAndSetUObject(const TCHAR* Buffer, TValue* OutValue, const EPropertyPortFlags PortFlags, FOutputDevice* ErrorText)
 {
-	const FObjectPtrProperty* PropertyCDO = GetDefault<FObjectPtrProperty>();
+	const FObjectProperty* PropertyCDO = GetDefault<FObjectProperty>();
 
-	FObjectPtrProperty PtrProperty(nullptr, PropertyCDO->NamePrivate, PropertyCDO->GetFlags());
+	FObjectProperty PtrProperty(nullptr, PropertyCDO->NamePrivate, PropertyCDO->GetFlags());
 	PtrProperty.SetPropertyClass(TValue::StaticClass());
 	Buffer = PtrProperty.ImportText_Direct(Buffer, &OutValue, nullptr, PortFlags, ErrorText);
 	if (Buffer)

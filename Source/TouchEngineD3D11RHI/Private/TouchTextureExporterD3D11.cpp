@@ -15,16 +15,14 @@
 #include "TouchTextureExporterD3D11.h"
 
 #include "Windows/AllowWindowsPlatformTypes.h"
-#include "Windows/PreWindowsApi.h"
 #include "d3d11.h"
-#include "Windows/PostWindowsApi.h"
 #include "Windows/HideWindowsPlatformTypes.h"
 
 #include "D3D11TouchUtils.h"
 #include "Logging.h"
+#include "TouchTextureImporterD3D11.h"
 #include "Rendering/Exporting/TouchExportParams.h"
 #include "TouchEngine/TED3D11.h"
-#include "TouchTextureImporterD3D11.h"
 
 namespace UE::TouchEngine
 {

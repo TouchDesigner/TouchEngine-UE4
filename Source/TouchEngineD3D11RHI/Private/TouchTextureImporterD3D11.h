@@ -18,9 +18,7 @@
 #include "Rendering/Importing/TouchTextureImporter.h"
 
 #include "Windows/AllowWindowsPlatformTypes.h"
-#include "Windows/PreWindowsApi.h"
 #include "d3d11.h"
-#include "Windows/PostWindowsApi.h"
 #include "Windows/HideWindowsPlatformTypes.h"
 
 namespace UE::TouchEngine::D3DX11

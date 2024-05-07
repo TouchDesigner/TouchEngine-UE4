@@ -23,19 +23,7 @@
 #if PLATFORM_WINDOWS
 THIRD_PARTY_INCLUDES_START
 #include "Windows/AllowWindowsPlatformTypes.h"
-#include "Windows/PreWindowsApi.h"
-#include <mftransform.h>
-#include <mfapi.h>
-#include <mferror.h>
-#include <mfidl.h>
-#include <codecapi.h>
-#include <shlwapi.h>
-#include <mfreadwrite.h>
 #include <d3d12.h>
-#include <dxgi1_4.h>
-#include <aclapi.h>
-#include <winnt.h>
-#include "Windows/PostWindowsApi.h"
 #include "Windows/HideWindowsPlatformTypes.h"
 THIRD_PARTY_INCLUDES_END
 #endif

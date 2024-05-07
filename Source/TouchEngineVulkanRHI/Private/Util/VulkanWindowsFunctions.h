@@ -22,10 +22,7 @@ THIRD_PARTY_INCLUDES_END
 
 #if PLATFORM_WINDOWS
 #include "Windows/AllowWindowsPlatformTypes.h"
-#include "Windows/PreWindowsApi.h"
-#include "Windows/MinimalWindowsApi.h"
 #include "vulkan/vulkan_win32.h"
-#include "Windows/PostWindowsApi.h"
 #include "Windows/HideWindowsPlatformTypes.h"
 
 namespace UE::TouchEngine::Vulkan

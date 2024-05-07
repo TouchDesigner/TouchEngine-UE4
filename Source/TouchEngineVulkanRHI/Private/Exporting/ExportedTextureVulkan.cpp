@@ -25,11 +25,9 @@ THIRD_PARTY_INCLUDES_END
 #include "Engine/Texture.h"
 #if PLATFORM_WINDOWS
 #include "Windows/AllowWindowsPlatformTypes.h"
-#include "Windows/PreWindowsApi.h"
 #include "vulkan_win32.h"
 // Very hacky way of getting access to DXGI_SHARED_RESOURCE_READ and DXGI_SHARED_RESOURCE_WRITE without curios dependency in build.cs file
 #include "ThirdParty/Windows/DirectX/include/dxgi1_2.h"
-#include "Windows/PostWindowsApi.h"
 #include "Windows/HideWindowsPlatformTypes.h"
 #include "Util/VulkanWindowsFunctions.h"
 #endif

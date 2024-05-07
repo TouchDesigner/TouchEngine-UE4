@@ -16,6 +16,12 @@
 
 #include "Logging.h"
 
+THIRD_PARTY_INCLUDES_START
+#include "Windows/AllowWindowsPlatformTypes.h"
+#include <aclapi.h>
+#include "Windows/HideWindowsPlatformTypes.h"
+THIRD_PARTY_INCLUDES_END
+
 namespace UE::TouchEngine::D3DX12
 {
 	/**

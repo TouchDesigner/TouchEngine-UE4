@@ -2020,7 +2020,7 @@ FString FTouchEngineDynamicVariableStruct::ExportValue(const EPropertyPortFlags 
 	case EVarType::Texture:
 		{
 			const UTexture* TempValue = GetValueAsTexture();
-			ExportSingleValue<FObjectPtrProperty>(ValueStr, TempValue, PortFlags);
+			ExportSingleValue<FObjectProperty>(ValueStr, TempValue, PortFlags);
 			break;
 		}
 	default:
