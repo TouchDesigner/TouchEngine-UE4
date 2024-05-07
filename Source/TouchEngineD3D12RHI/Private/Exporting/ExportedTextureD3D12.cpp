@@ -94,8 +94,12 @@ namespace UE::TouchEngine::D3DX12
 			{
 				TextureDesc.AddFlags(ETextureCreateFlags::SRGB);
 			}
-			SharedTextureRHI = RHICreateTexture(TextureDesc);
-
+			ENQUEUE_RENDER_COMMAND(CreateTexture)([&](FRHICommandListImmediate& RHICmdList)
+			{
+				SharedTextureRHI = RHICreateTexture(TextureDesc);
+			});
+			FlushRenderingCommands(); // Not the most elegant but allows the RHICreateTexture to run on RenderThread without forcing the creation of FExportedTextureD3D12 on RenderThread
+			
 			// - The code below would display the format of the texture
 			// ID3D12DynamicRHI* DX12RHI = GetID3D12DynamicRHI();
 			// ID3D12Resource* Resource = DX12RHI->RHIGetResource(SharedTextureRHI);
