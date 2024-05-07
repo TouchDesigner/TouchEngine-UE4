@@ -21,3 +21,14 @@ If you proceed but it fails, you can have a look at the log. It is likely that t
 You need to add the tox files folder to the "Additional Non-Asset Directories" the project settings. The sample project has it added already.
 
 ![Additional Non-Asset Directories To Copy](assets/FAQ/additional_non_assets_dir.png?raw=true "Additional Non-Asset Directories To Copy")
+
+## I packaged my project and it doesn't launch, I get an error stating that "TouchEngineVulkanRHI" could not be found.
+
+It was reported to happen in some cases in UE 5.3.
+
+![TouchEngineVulkanRHI Could not be found.](assets/FAQ/TouchEngineVulkanRHI_could_not_be_found.png?raw=true "TouchEngineVulkanRHI Could not be found.")
+
+Go to the settings and make sure that the followings are turned on:
+- Project Settings → Windows → Vulkan Targeted Shader Formats
+
+![Vulkan Shader format settings.](assets/FAQ/TouchEngineVulkanRHI_could_not_be_found_settings.png?raw=true "Vulkan Shader format settings.")
