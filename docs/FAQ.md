@@ -24,11 +24,13 @@ You need to add the tox files folder to the "Additional Non-Asset Directories" t
 
 ## I packaged my project and it doesn't launch, I get an error stating that "TouchEngineVulkanRHI" could not be found.
 
-It was reported to happen in some cases in UE 5.3.
+It was reported to happen in some cases in UE 5.3 and 5.4.
 
 ![TouchEngineVulkanRHI Could not be found.](assets/FAQ/TouchEngineVulkanRHI_could_not_be_found.png?raw=true "TouchEngineVulkanRHI Could not be found.")
 
-Go to the settings and make sure that the followings are turned on:
+⚠️⚠️⚠️ **Pure BP projects** (projects that don't have any C++ classes, or non packaged plugins) require users to manually add the key `"EnabledByDefault": false` to the `Project Folder/Plugins/TouchEngine/TouchEngine.uplugin` file when packaging a project. Otherwise, you might get a message stating that a module related to TouchEngine is missing. This is an issue on Unreal packaging end and not something that we can solve at the moment.
+
+If the issue remains, go to the settings and make sure that the followings are turned on:
 - Project Settings → Windows → Vulkan Targeted Shader Formats
 
 ![Vulkan Shader format settings.](assets/FAQ/TouchEngineVulkanRHI_could_not_be_found_settings.png?raw=true "Vulkan Shader format settings.")
