@@ -8,7 +8,7 @@
 
 TouchEngine allows the use of TouchDesigner components in Unreal Engine. The plugin currently supports most Custom Parameters, CHOP inputs/outputs, TOP inputs/outputs and DAT inputs/outputs.
 
-TouchEngine requires an installed version of TouchDesigner. TouchEngine does not work with Non-Commercial licenses. We recommend using the latest official version of TouchDesigner: [available here 🔗.](https://derivative.ca/download)
+TouchEngine requires an installed version of TouchDesigner and any paid license: TouchDesigner or TouchPlayer (Commercial/Pro/Educational). TouchEngine does not work with Non-Commercial licenses. We recommend using the latest official version of TouchDesigner: [available here 🔗.](https://derivative.ca/download)
 
 This repository is covering the TouchEngine For UE Plugin, for samples and samples documentation of the TouchEngine For UE Plugin, follow [this link 🔗](https://github.com/TouchDesigner/TouchEngine-UE-Samples/).
 
