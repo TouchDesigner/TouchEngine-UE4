@@ -2,7 +2,7 @@
 
 ## TouchEngine Plugin for Unreal Engine
 
-* **Current Unreal Engine version:** `5.4.1`
+* **Current Unreal Engine version:** `5.4.x`
 * **Current TouchEngine version:** `2023.11760+`
 * **Current Plugin version:** `1.4.0`
 
