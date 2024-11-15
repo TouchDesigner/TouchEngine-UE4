@@ -27,14 +27,14 @@ namespace UE::TouchEngine::D3DX12
 	{
 	public:
 		
-		static TSharedPtr<FExportedTextureD3D12> Create(const FRHITexture2D& SourceRHI, const FTextureShareD3D12SharedResourceSecurityAttributes& SharedResourceSecurityAttributes);
+		static TSharedPtr<FExportedTextureD3D12> Create(const FRHITexture& SourceRHI, const FTextureShareD3D12SharedResourceSecurityAttributes& SharedResourceSecurityAttributes);
 		
-		FExportedTextureD3D12(FTexture2DRHIRef SharedTextureRHI, const FGuid& ResourceId, void* ResourceSharingHandle, const TouchObject<TED3DSharedTexture>& TouchRepresentation);
+		FExportedTextureD3D12(FTextureRHIRef SharedTextureRHI, const FGuid& ResourceId, void* ResourceSharingHandle, const TouchObject<TED3DSharedTexture>& TouchRepresentation);
 		//~ Begin FExportedTouchTexture Interface
 		virtual bool CanFitTexture(const FRHITexture* TextureToFit) const override;
 		//~ End FExportedTouchTexture Interface
 
-		const FTexture2DRHIRef& GetSharedTextureRHI() const { return SharedTextureRHI; }
+		const FTextureRHIRef& GetSharedTextureRHI() const { return SharedTextureRHI; }
 
 	protected:
 		virtual void RemoveTextureCallback() override;
@@ -42,7 +42,7 @@ namespace UE::TouchEngine::D3DX12
 	private:
 
 		/** Shared between Unreal and TE. Access must be synchronized. */
-		FTexture2DRHIRef SharedTextureRHI;
+		FTextureRHIRef SharedTextureRHI;
 
 		/** Used to handle the ID of the resource */
 		FGuid ResourceId;

@@ -33,7 +33,7 @@ namespace UE::TouchEngine::Vulkan
 		friend class FTouchTextureExporterVulkan;
 	public:
 
-		static TSharedPtr<FExportedTextureVulkan> Create(const FRHITexture2D& SourceRHI, const TSharedRef<FVulkanSharedResourceSecurityAttributes>& SecurityAttributes);
+		static TSharedPtr<FExportedTextureVulkan> Create(const FRHITexture& SourceRHI, const TSharedRef<FVulkanSharedResourceSecurityAttributes>& SecurityAttributes);
 		
 		//~ Begin FExportedTouchTexture Interface
 		virtual bool CanFitTexture(const FRHITexture* TextureToFit) const override;

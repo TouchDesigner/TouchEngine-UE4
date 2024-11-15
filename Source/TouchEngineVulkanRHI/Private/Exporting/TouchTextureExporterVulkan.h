@@ -38,7 +38,7 @@ namespace UE::TouchEngine::Vulkan
 		//~ End FTouchTextureExporter Interface
 		
 		//~ Begin TExportedTouchTextureCache Interface
-		TSharedPtr<FExportedTextureVulkan> CreateTexture(const FTouchExportParameters& Params, const FRHITexture2D* ParamTextureRHI) const;
+		TSharedPtr<FExportedTextureVulkan> CreateTexture(const FTouchExportParameters& Params, const FRHITexture* ParamTextureRHI) const;
 		void FinalizeExportsToTouchEngine_AnyThread(const FTouchEngineInputFrameData& FrameData);
 		//~ End TExportedTouchTextureCache Interface
 		

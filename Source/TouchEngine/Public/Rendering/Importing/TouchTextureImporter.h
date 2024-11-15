@@ -128,7 +128,7 @@ namespace UE::TouchEngine
 
 		FCriticalSection KeepTexturesAliveMutex;
 		/** Array of textures to keep alive while we are copying them */
-		TArray<TPair<TSharedPtr<ITouchImportTexture>, FTexture2DRHIRef>> KeepTexturesAliveForCopy;
+		TArray<TPair<TSharedPtr<ITouchImportTexture>, FTextureRHIRef>> KeepTexturesAliveForCopy;
 		
 		/**
 		 * @brief 

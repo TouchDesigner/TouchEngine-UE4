@@ -299,7 +299,7 @@ case DX_Format: bIsSRGB = true; return UE_Format;
  		}
 	}
 
-	bool GetRHITopLeftPixelColor(FRHITexture2D* RHI, FColor& Color)
+	bool GetRHITopLeftPixelColor(FRHITexture* RHI, FColor& Color)
 	{
 		bool bResult = false;
 		if (RHI)

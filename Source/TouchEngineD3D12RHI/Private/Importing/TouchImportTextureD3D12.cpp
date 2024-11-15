@@ -39,7 +39,7 @@ namespace UE::TouchEngine::D3DX12
 			}
 		}
 
-		FTexture2DRHIRef SrcRHI;
+		FTextureRHIRef SrcRHI;
 		{
 			DECLARE_SCOPE_CYCLE_COUNTER(TEXT("        III.A.2.a.2 [RT] Link Texture Import - CreateTexture - RHICreateTexture2DFromResource"), STAT_TE_III_A_2_a_2_D3D, STATGROUP_TouchEngine);
 			bool IsSRGB;
@@ -68,7 +68,7 @@ namespace UE::TouchEngine::D3DX12
 	}
 
 	FTouchImportTextureD3D12::FTouchImportTextureD3D12(
-		const FTexture2DRHIRef& TextureRHI,
+		const FTextureRHIRef& TextureRHI,
 		Microsoft::WRL::ComPtr<ID3D12Resource> SourceResource,
 		TSharedRef<FTouchFenceCache> FenceCache,
 		TSharedRef<FTouchFenceCache::FFenceData> ReleaseMutexSemaphore
@@ -108,7 +108,7 @@ namespace UE::TouchEngine::D3DX12
 		return false;
 	}
 
-	void FTouchImportTextureD3D12::ReleaseMutex_RenderThread(const FTouchCopyTextureArgs& CopyArgs, const TouchObject<TESemaphore>& Semaphore, FTexture2DRHIRef& SourceTexture)
+	void FTouchImportTextureD3D12::ReleaseMutex_RenderThread(const FTouchCopyTextureArgs& CopyArgs, const TouchObject<TESemaphore>& Semaphore, FTextureRHIRef& SourceTexture)
 	{
 		ReleaseMutexSemaphore.Get().LastValue = ReleaseMutexSemaphore.Get().NativeFence->GetCompletedValue() + 1;
 		
@@ -125,7 +125,7 @@ namespace UE::TouchEngine::D3DX12
 		
 	}
 
-	void FTouchImportTextureD3D12::CopyTexture_RenderThread(FRHICommandListImmediate& RHICmdList, const FTexture2DRHIRef SrcTexture, const FTexture2DRHIRef DstTexture, TSharedRef<FTouchTextureImporter> Importer)
+	void FTouchImportTextureD3D12::CopyTexture_RenderThread(FRHICommandListImmediate& RHICmdList, const FTextureRHIRef SrcTexture, const FTextureRHIRef DstTexture, TSharedRef<FTouchTextureImporter> Importer)
 	{
 		check(SrcTexture.IsValid() && DstTexture.IsValid());
 		check(SrcTexture->GetFormat() == DstTexture->GetFormat());

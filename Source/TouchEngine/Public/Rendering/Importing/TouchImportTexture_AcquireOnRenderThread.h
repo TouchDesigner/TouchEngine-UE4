@@ -40,9 +40,9 @@ namespace UE::TouchEngine
 		/** Acquires the mutex. If this is a CPU mutex, this may block. If executed on the GPU, it is enqueued here. If this functions returns false, ReleaseMutex will not be called.  */
 		virtual bool AcquireMutex(const FTouchCopyTextureArgs& CopyArgs, const TouchObject<TESemaphore>& Semaphore, uint64 WaitValue) = 0;
 		/** Gets the texture while the mutex is acquired. */
-		virtual FTexture2DRHIRef ReadTextureDuringMutex() = 0;
+		virtual FTextureRHIRef ReadTextureDuringMutex() = 0;
 		/** Releases the mutex. If this is a CPU mutex, this may block. If executed on the GPU, it is enqueued here. */
-		virtual void ReleaseMutex_RenderThread(const FTouchCopyTextureArgs& CopyArgs, const TouchObject<TESemaphore>& Semaphore, FTexture2DRHIRef& SourceTexture) = 0;
-		virtual void CopyTexture_RenderThread(FRHICommandListImmediate& RHICmdList, const FTexture2DRHIRef SrcTexture, const FTexture2DRHIRef DstTexture, TSharedRef<FTouchTextureImporter> Importer) = 0;
+		virtual void ReleaseMutex_RenderThread(const FTouchCopyTextureArgs& CopyArgs, const TouchObject<TESemaphore>& Semaphore, FTextureRHIRef& SourceTexture) = 0;
+		virtual void CopyTexture_RenderThread(FRHICommandListImmediate& RHICmdList, const FTextureRHIRef SrcTexture, const FTextureRHIRef DstTexture, TSharedRef<FTouchTextureImporter> Importer) = 0;
 	};
 }

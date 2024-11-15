@@ -166,7 +166,7 @@ namespace UE::TouchEngine::Vulkan
 		}
 	}
 	
-	TSharedPtr<FExportedTextureVulkan> FExportedTextureVulkan::Create(const FRHITexture2D& SourceRHI, const TSharedRef<FVulkanSharedResourceSecurityAttributes>& SecurityAttributes)
+	TSharedPtr<FExportedTextureVulkan> FExportedTextureVulkan::Create(const FRHITexture& SourceRHI, const TSharedRef<FVulkanSharedResourceSecurityAttributes>& SecurityAttributes)
 	{
 		DECLARE_SCOPE_CYCLE_COUNTER(TEXT("      I.B.1.a [GT] Cook Frame - Vulkan::CreateTexture"), STAT_TE_I_B_1_a_Vulkan, STATGROUP_TouchEngine);
 		const EPixelFormat PixelFormat = SourceRHI.GetFormat();

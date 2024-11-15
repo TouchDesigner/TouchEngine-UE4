@@ -56,11 +56,11 @@ namespace UE::TouchEngine::D3DX12
 		}
 	}
 	
-	TSharedPtr<FExportedTextureD3D12> FExportedTextureD3D12::Create(const FRHITexture2D& SourceRHI, const FTextureShareD3D12SharedResourceSecurityAttributes& SharedResourceSecurityAttributes)
+	TSharedPtr<FExportedTextureD3D12> FExportedTextureD3D12::Create(const FRHITexture& SourceRHI, const FTextureShareD3D12SharedResourceSecurityAttributes& SharedResourceSecurityAttributes)
 	{
 		DECLARE_SCOPE_CYCLE_COUNTER(TEXT("      I.B.1.a [GT] Cook Frame - D3D12::CreateTexture"), STAT_TE_I_B_1_a_D3D, STATGROUP_TouchEngine);
 		using namespace Private;
-		FTexture2DRHIRef SharedTextureRHI;
+		FTextureRHIRef SharedTextureRHI;
 		
 		const FGuid ResourceId = FGuid::NewGuid();
 		const FString ResourceIdString = GenerateIdentifierString(ResourceId);
@@ -148,7 +148,7 @@ namespace UE::TouchEngine::D3DX12
 		return MakeShared<FExportedTextureD3D12>(SharedTextureRHI, ResourceId, ResourceSharingHandle, TouchRepresentation);
 	}
 
-	FExportedTextureD3D12::FExportedTextureD3D12(FTexture2DRHIRef SharedTextureRHI, const FGuid& ResourceId, void* ResourceSharingHandle, const TouchObject<TED3DSharedTexture>& TouchRepresentation)
+	FExportedTextureD3D12::FExportedTextureD3D12(FTextureRHIRef SharedTextureRHI, const FGuid& ResourceId, void* ResourceSharingHandle, const TouchObject<TED3DSharedTexture>& TouchRepresentation)
 		: FExportedTouchTexture(TouchRepresentation, [this](const TouchObject<TETexture>& Texture)
 		{
 			TED3DSharedTexture* Casted = static_cast<TED3DSharedTexture*>(Texture.get());

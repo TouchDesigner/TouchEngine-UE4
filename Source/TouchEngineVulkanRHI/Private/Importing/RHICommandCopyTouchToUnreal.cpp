@@ -45,12 +45,12 @@ namespace UE::TouchEngine::Vulkan
 		
 		// Note that this keeps the output texture alive for the duration of the command (through FTouchImportParameters::Texture)
 		FTouchImportParameters RequestParams;
-		const FTexture2DRHIRef Target;
+		const FTextureRHIRef Target;
 
 		// Vulkan related
 		FVulkanPointers VulkanPointers;
 		
-		FRHICommandCopyTouchToUnreal(TWeakPtr<UE::TouchEngine::FTouchTextureImporter> InImporter, TSharedPtr<FTouchImportTextureVulkan> InSharedTexture, const FTouchImportParameters& RequestParams, const FTexture2DRHIRef& Target)
+		FRHICommandCopyTouchToUnreal(TWeakPtr<UE::TouchEngine::FTouchTextureImporter> InImporter, TSharedPtr<FTouchImportTextureVulkan> InSharedTexture, const FTouchImportParameters& RequestParams, const FTextureRHIRef& Target)
 			: Importer(MoveTemp(InImporter))
 			, SharedTexture(MoveTemp(InSharedTexture))
 			, RequestParams(RequestParams)
@@ -124,7 +124,7 @@ namespace UE::TouchEngine::Vulkan
 		SourceImageBarrier.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
 		SourceImageBarrier.image = *SharedTexture->ImageHandle.Get();
 		
-		const FTexture2DRHIRef TargetTexture = Target; // Target->GetResource()->TextureRHI->GetTexture2D();
+		const FTextureRHIRef TargetTexture = Target; // Target->GetResource()->TextureRHI->GetTexture2D();
 		const FVulkanTexture* Dest = static_cast<FVulkanTexture*>(TargetTexture->GetTextureBaseRHI());
 		
 		FVulkanCommandListContext& VulkanContext = static_cast<FVulkanCommandListContext&>(CmdList.GetContext());
@@ -182,7 +182,7 @@ namespace UE::TouchEngine::Vulkan
 
 	void FRHICommandCopyTouchToUnreal::CopyTexture() const
 	{
-		const FTexture2DRHIRef TargetTexture = Target;
+		const FTextureRHIRef TargetTexture = Target;
 
 		const FVulkanTexture* Dest = static_cast<FVulkanTexture*>(TargetTexture->GetTextureBaseRHI());
 
@@ -196,7 +196,7 @@ namespace UE::TouchEngine::Vulkan
 		Region.extent.height = FMath::Max<uint32>(PixelFormatInfo.BlockSizeY, SrcInfo.SizeY);
 		Region.extent.depth = 1;
 		// FVulkanSurface constructor sets aspectMask like this so let's do the same for now
-		Region.srcSubresource.aspectMask = GetAspectMaskFromUEFormat(SrcInfo.PixelFormat, true, true);
+		Region.srcSubresource.aspectMask = VulkanRHI::GetAspectMaskFromUEFormat(SrcInfo.PixelFormat, true, true);
 		Region.srcSubresource.layerCount = 1;
 		Region.dstSubresource.aspectMask = Dest->GetFullAspectMask();
 		Region.dstSubresource.layerCount = 1;

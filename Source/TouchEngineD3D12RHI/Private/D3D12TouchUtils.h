@@ -34,5 +34,5 @@ namespace UE::TouchEngine::D3DX12
 	bool IsTypeless(DXGI_FORMAT Format);
 	
 	/** Debug function to get the top left pixel color of a Texture. This calls ID3D12DynamicRHI::RHILockTexture2D which ends up flushing the graphic commands first*/
-	bool GetRHITopLeftPixelColor(FRHITexture2D* RHI, FColor& Color);
+	bool GetRHITopLeftPixelColor(FRHITexture* RHI, FColor& Color);
 }

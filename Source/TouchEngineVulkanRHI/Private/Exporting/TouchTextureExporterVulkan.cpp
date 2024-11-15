@@ -269,7 +269,7 @@ namespace UE::TouchEngine::Vulkan
 		// FVulkanSurface constructor sets aspectMask like this so let's do the same for now
 		Region.srcSubresource.aspectMask = SourceVulkanTexture->GetFullAspectMask();
 		Region.srcSubresource.layerCount = 1;
-		Region.dstSubresource.aspectMask = GetAspectMaskFromUEFormat(SharedTextureResources->GetPixelFormat(), true, true);
+		Region.dstSubresource.aspectMask = VulkanRHI::GetAspectMaskFromUEFormat(SharedTextureResources->GetPixelFormat(), true, true);
 		Region.dstSubresource.layerCount = 1;
 		
 		VulkanRHI::vkCmdCopyImage(GetCommandBuffer(), SourceVulkanTexture->Image, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL, *SharedTextureResources->GetImageOwnership(), VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &Region);
@@ -339,7 +339,7 @@ namespace UE::TouchEngine::Vulkan
 		return Future;
 	}
 
-	TSharedPtr<FExportedTextureVulkan> FTouchTextureExporterVulkan::CreateTexture(const FTouchExportParameters& Params, const FRHITexture2D* ParamTextureRHI) const
+	TSharedPtr<FExportedTextureVulkan> FTouchTextureExporterVulkan::CreateTexture(const FTouchExportParameters& Params, const FRHITexture* ParamTextureRHI) const
 	{
 		return FExportedTextureVulkan::Create(*ParamTextureRHI, SecurityAttributes);
 	}

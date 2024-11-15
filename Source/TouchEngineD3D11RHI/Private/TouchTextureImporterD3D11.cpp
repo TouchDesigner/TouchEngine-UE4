@@ -73,7 +73,7 @@ namespace UE::TouchEngine::D3DX11
 				return true;
 			}
 
-			virtual FTexture2DRHIRef ReadTextureDuringMutex() override
+			virtual FTextureRHIRef ReadTextureDuringMutex() override
 			{
 				if (!PlatformTexture)
 				{
@@ -91,7 +91,7 @@ namespace UE::TouchEngine::D3DX11
 				return DynamicRHI->RHICreateTexture2DFromResource(Format, TexCreate_Shared, FClearValueBinding::None, SourceD3D11Texture2D).GetReference();
 			}
 
-			virtual void ReleaseMutex_RenderThread(const FTouchCopyTextureArgs& CopyArgs, const TouchObject<TESemaphore>& Semaphore, FTexture2DRHIRef& SourceTexture) override
+			virtual void ReleaseMutex_RenderThread(const FTouchCopyTextureArgs& CopyArgs, const TouchObject<TESemaphore>& Semaphore, FTextureRHIRef& SourceTexture) override
 			{
 				ID3D11Texture2D* Resource = TED3D11TextureGetTexture(PlatformTexture);
 		
@@ -108,7 +108,7 @@ namespace UE::TouchEngine::D3DX11
 				PlatformTexture.reset();
 			}
 
-			virtual void CopyTexture_RenderThread(FRHICommandListImmediate& RHICmdList, const FTexture2DRHIRef SrcTexture, const FTexture2DRHIRef DstTexture, TSharedRef<FTouchTextureImporter> Importer) override
+			virtual void CopyTexture_RenderThread(FRHICommandListImmediate& RHICmdList, const FTextureRHIRef SrcTexture, const FTextureRHIRef DstTexture, TSharedRef<FTouchTextureImporter> Importer) override
 			{
 				// We fallback to using native APIs to make sure the commands are enqueued immediately. If we use
 				// D3D11 RHI, in many cases if r.RHICmdBypass is set to 0 (by default), the commands will not be enqueued right away.

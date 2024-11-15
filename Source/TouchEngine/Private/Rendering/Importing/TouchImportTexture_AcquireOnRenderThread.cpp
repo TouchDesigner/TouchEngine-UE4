@@ -37,11 +37,11 @@ namespace UE::TouchEngine
 				}
 			}
 
-			FTexture2DRHIRef SourceTexture = ReadTextureDuringMutex();
+			FTextureRHIRef SourceTexture = ReadTextureDuringMutex();
 			if (SourceTexture)
 			{
 				check(CopyArgs.TargetRHI);
-				const FTexture2DRHIRef DestTexture = CopyArgs.TargetRHI;
+				const FTextureRHIRef DestTexture = CopyArgs.TargetRHI;
 				CopyTexture_RenderThread(CopyArgs.RHICmdList, SourceTexture, DestTexture, Importer);
 			}
 			else

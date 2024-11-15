@@ -48,7 +48,7 @@ namespace UE::TouchEngine::D3DX12
 		//~ End FTouchTextureExporter Interface
 
 		//~ Begin TExportedTouchTextureCache Interface
-		TSharedPtr<FExportedTextureD3D12> CreateTexture(const FTouchExportParameters& Params, const FRHITexture2D* ParamTextureRHI) const
+		TSharedPtr<FExportedTextureD3D12> CreateTexture(const FTouchExportParameters& Params, const FRHITexture* ParamTextureRHI) const
 		{
 			return FExportedTextureD3D12::Create(*ParamTextureRHI, SharedResourceSecurityAttributes);
 		}

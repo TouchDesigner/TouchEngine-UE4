@@ -33,7 +33,7 @@ namespace UE::TouchEngine
 	{
 		FTouchImportParameters RequestParams;
 		FRHICommandListImmediate& RHICmdList;
-		FTexture2DRHIRef TargetRHI;
+		FTextureRHIRef TargetRHI;
 	};
 
 	struct FTextureMetaData
@@ -58,7 +58,7 @@ namespace UE::TouchEngine
 		virtual ~ITouchImportTexture() = default;
 
 		virtual FTextureMetaData GetTextureMetaData() const = 0;
-		bool CanCopyInto(const FTexture2DRHIRef& Target) const
+		bool CanCopyInto(const FTextureRHIRef& Target) const
 		{
 			if (Target)
 			{
